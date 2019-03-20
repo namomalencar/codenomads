@@ -15,7 +15,7 @@ import com.codenomads.mylistapp.service.ListService;
 @RequestMapping(path = "/mylist", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ListController extends GenericController<ListService, ListDomain, Long> {
 
-	@GetMapping(path = "/test}")
+	@GetMapping(path = "/test")
 	public List<ListDomain> myTest() {
 		List<ListDomain> test = new ArrayList<ListDomain>();
 		test.add(new ListDomain("Test1"));
