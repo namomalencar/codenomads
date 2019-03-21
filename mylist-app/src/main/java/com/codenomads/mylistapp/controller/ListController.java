@@ -2,7 +2,7 @@ package com.codenomads.mylistapp.controller;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Random;
@@ -19,6 +19,8 @@ import com.codenomads.mylistapp.service.ListService;
 @RestController
 @RequestMapping(path = "/mylist", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ListController extends GenericController<ListService, ListDomain, Long> {
+	
+	private static int randomNumber = 500;
 
 	@GetMapping(path = "/generate")
 	public List<ListDomain> generate() {
@@ -32,8 +34,8 @@ public class ListController extends GenericController<ListService, ListDomain, L
 		return service.findAll();
 	}
 
-	private LocalDate generateDate() {
-		return LocalDate.now().plus(new Random().nextInt(500), ChronoUnit.DAYS);
+	private LocalDateTime generateDate() {
+		return LocalDateTime.now().plus(new Random().nextInt(randomNumber), ChronoUnit.DAYS);
 	}
 
 	private Stream<String> getStreamFromFile(String fileName) {

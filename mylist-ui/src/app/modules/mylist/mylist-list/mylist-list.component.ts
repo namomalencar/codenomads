@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MylistService } from '../mylist/mylist.service';
+import { MylistService } from 'src/app/core/services/mylist.service';
 
 @Component({
   selector: 'app-mylist-list',
@@ -9,19 +9,16 @@ import { MylistService } from '../mylist/mylist.service';
 export class MylistListComponent implements OnInit {
 
   mylists: object[] = [];
-  private mylistService: MylistService;
 
-  constructor(mylistService: MylistService) {
-    this.mylistService = mylistService;
-  }
+  constructor(
+    private mylistService: MylistService
+  ) { }
 
   ngOnInit(): void {
     this.mylistService
       .listAll()
       .subscribe(response => { 
         this.mylists = response;
-      });
-      
+    });
   }
-
 }
