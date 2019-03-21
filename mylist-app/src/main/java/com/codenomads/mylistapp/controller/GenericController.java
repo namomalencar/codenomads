@@ -40,7 +40,7 @@ public class GenericController<S extends GenericService<? extends JpaRepository<
 	}
 
 	@PostMapping
-	protected E save(E object) throws Exception {
+	public E save(@RequestBody E object) throws Exception {
 		return service.save(object);
 	}
 

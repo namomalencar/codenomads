@@ -3,4 +3,4 @@ spring:
     name: mylist-eureka-server
   cloud:
     config:
-      uri: http://localhost:9090
+      uri: http://192.168.99.100:9090

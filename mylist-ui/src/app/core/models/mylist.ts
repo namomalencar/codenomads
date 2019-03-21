@@ -1,7 +1,7 @@
 export interface Mylist {
   
     id:number;
-    name:string;
+    nameList:string;
     dateList:string;
     tasks:any[];
 }

@@ -14,8 +14,6 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
@@ -32,22 +30,25 @@ public class ListDomain implements Serializable {
 
 	@NotNull
 	@Size(min = 2, max = 255)
-	@Column(unique = true)
-	private String name;
+	@Column(unique = true, nullable = false)
+	private String nameList;
 
-	@NotNull
 	@JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
-	@DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
 	private LocalDateTime dateList;
 
 	@OneToMany(mappedBy = "myList", cascade = CascadeType.ALL)
 	private List<TaskDomain> taks;
 
-	public ListDomain(String name, LocalDateTime dateList) {
-		this.name = name;
+	public ListDomain(String nameList, LocalDateTime dateList) {
+		this.nameList = nameList;
 		this.dateList = dateList;
 	}
 
+	public ListDomain(String nameList) {
+		this.nameList = nameList;
+		this.dateList = LocalDateTime.now();
+	}
+	
 	public ListDomain() {
 		this.dateList = LocalDateTime.now();
 	}
