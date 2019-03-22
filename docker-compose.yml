@@ -1,0 +1,28 @@
+version: "3"
+services:
+  
+  # Eureka-server container
+  eureka-server:
+    container_name: namom-eureka
+    image: namom/eureka:latest
+    restart: on-failure
+    ports:
+      - "9091:9091"
+    
+  # Application container.
+  app-service:
+    container_name: namom-app
+    image: namom/app:latest
+    restart: on-failure
+    ports:
+      - "9093:9093"
+    depends_on:
+      - "eureka-server"
+
+  # User Interface container.
+  ui-service:
+    container_name: namom-ui
+    image: namom/ui:latest
+    ports:
+      - "4200:4200"
+      
