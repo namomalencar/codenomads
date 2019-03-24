@@ -1,3 +1,15 @@
-<p>
-  mylist-form works!
-</p>
+<form class="mb-2" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <input type="text" formControlName="nameList" class="form-control" id="nameList" aria-describedby="mylistHelp" placeholder="New list: Supermarket, Holiday, Barbecue...">
+    <small id="mylistHelp" class="form-text text-muted">Please provide a list with more than 1 and less then 255</small>
+  </div>
+ 
+  <button type="submit" class="btn btn-primary">Save</button>
+  <br>
+  <div class="alert alert-success" *ngIf="msgSuccess">
+    <strong>Success!</strong>
+  </div>
+  <div class="alert alert-danger" *ngIf="msgError">
+    <strong>Opps, something went wrong!</strong>
+  </div>
+</form>

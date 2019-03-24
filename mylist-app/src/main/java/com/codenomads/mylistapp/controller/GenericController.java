@@ -46,7 +46,7 @@ public class GenericController<S extends GenericService<? extends JpaRepository<
 
 	@DeleteMapping
 	public void delete(@RequestBody PK object) throws Exception {
-		this.delete((PK) object);
+		this.service.delete((PK) object);
 	}
 
 }

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MylistService } from 'src/app/core/services/mylist.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Mylist } from 'src/app/core/models/mylist';
 
 @Component({
   selector: 'app-mylist-list',
@@ -8,17 +8,15 @@ import { MylistService } from 'src/app/core/services/mylist.service';
 })
 export class MylistListComponent implements OnInit {
 
-  mylists: object[] = [];
+  @Input() mylists: object[] = [];
+  
+  @Output() toDelete = new EventEmitter<Mylist>();
 
-  constructor(
-    private mylistService: MylistService
-  ) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    this.mylistService
-      .listAll()
-      .subscribe(response => { 
-        this.mylists = response;
-    });
+  ngOnInit(): void {  }
+
+  delete(mylist: Mylist){
+    this.toDelete.emit(mylist);
   }
 }

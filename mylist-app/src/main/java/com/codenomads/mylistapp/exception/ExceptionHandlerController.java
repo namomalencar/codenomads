@@ -15,7 +15,6 @@ public class ExceptionHandlerController {
 
 	@ExceptionHandler(ConstraintViolationException.class)
 	public ResponseEntity<?> validateError(ConstraintViolationException ex) {
-
 		ErroResponse err = new ErroResponse(HttpStatus.BAD_REQUEST
 											,ex.getMessage()
 											,ex.getConstraintViolations().stream()

@@ -1,50 +1,21 @@
-<div class="container">
-  <div class="row justify-content-md-center">
-      <header class="masthead col-md-8">
-          <div class="inner">
-              <div class="col col-md-auto">
-                  <h2 class="masthead-brand">Welcome</h2>
-              </div>
-          </div>
-      </header>
-  </div>
-
-  <div class="row justify-content-md-center">
-      <h1 class="cover-heading">My list</h1>
-  </div>
-  <div class="row justify-content-md-center">
-      <p class="lead">My list is a simple to-do list and task manager that helps you get stuff done.</p>
-      <p class="lead">Whether you’re sharing a grocery list with a loved one, working on a project, or planning a vacation.</p>
-  </div>
-
-  <div class="row justify-content-md-center">
-      <table class="table table-hover">
-          <thead>
-              <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">List name</th>
-                  <th scope="col">Date</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr *ngFor="let mylist of mylists">
-                  <td>{{mylist.id}}</td>
-                  <td>
-                      <span>{{mylist.nameList}}</span>
-                  </td>
-                  <td>{{mylist.dateList}}</td>
-              </tr>
-          </tbody>
-      </table>
-  </div>
-
-  <div class="row justify-content-md-center">
-      <footer class="mastfoot mt-auto">
-          <div class="inner">
-              <p>
-                  See the code on my
-                  <a href="https://github.com/namomalencar/codenomads">github</a>.
-              </p>
-          </div>
-      </footer>
-  </div>
+<div class="row justify-content-md-center">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">List name</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let mylist of mylists">
+                <td>{{mylist.id}}</td>
+                <td>
+                    <span>{{mylist.nameList}}</span>
+                </td>
+                <td>{{mylist.dateList}}</td>
+                <td><button class="btn btn-primary" (click)="delete(mylist)"> delete</button> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
