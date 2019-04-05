@@ -1,4 +1,4 @@
-# codenomads
+# Sample
 
 #### Intro
 This is a simple cloud scenario using Spring Cloud and Docker. The elements of this scenario are the following:
